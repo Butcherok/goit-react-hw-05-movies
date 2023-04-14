@@ -1,20 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const SearchForm = ({value, onChange }) => {
-  // const [query, setQuery] = useState('')
-  
-  //   const onSubmit = value => {
-  //   setQuery(value);
-  // };
+const SearchForm = ({ setSearchParams }) => {
+  const [querySearch, setQuerySearch] = useState('');
+
+  const onHandleSubmit = e => {
+    e.preventDefault();
+    if (!querySearch.trim()) return;
+    setSearchParams({ query: querySearch.trim().toLowerCase() });
+    setQuerySearch('');
+  };
+
+  const onHandleChange = e => {
+    const { value } = e.currentTarget;
+    setQuerySearch(value);
+  };
   return (
-    <form >
+    <form onSubmit={onHandleSubmit}>
       <input
         type="text"
-        // autocomplete="off"
+        autoComplete="off"
         autoFocus
-        placeholder="Search images and photos"
-        value={value}
-        onChange={e => onChange(e.target.value)}
+        placeholder="Search movies"
+        value={querySearch}
+        onChange={onHandleChange}
       />
       <button type="submit">
         <span>Search</span>

@@ -8,16 +8,12 @@ const HomePage = lazy(() => import('../Pages/HomePage'));
 const MoviesPage = lazy(() => import('../Pages/MoviesPage'));
 const NotFound = lazy(() => import('../Pages/NotFound'));
 const MovieDetails = lazy(() => import('../Pages/MovieDetails'));
-// import HomePage from '../Pages/HomePage';
-// import MoviesPage from '../Pages/MoviesPage';
-// import NotFound from '../Pages/NotFound';
-// import MovieDetails from 'Pages/MovieDetails';
 
 export const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" end element={<Layout />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="movies" element={<MoviesPage />} />
           <Route path="movies/:id" element={<MovieDetails />}>
