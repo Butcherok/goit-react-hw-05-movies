@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link, useLocation } from 'react-router-dom';
 import { fetchMovies } from 'utils/api';
-import { STATUS } from 'utils/constans';
+import { STATUS } from 'utils/constants';
 
 const HomePage = () => {
   const location = useLocation();
@@ -25,7 +25,6 @@ const HomePage = () => {
         }
         setMovies(getSimpleData(results));
         setStatus(STATUS.RESOLVED);
-
       } catch (error) {
         if (error.message !== 'canceled') {
           setStatus(STATUS.ERROR);
@@ -46,7 +45,7 @@ const HomePage = () => {
       return { id, title };
     });
   }
-  
+
   return (
     <main>
       <h1>Trending today</h1>

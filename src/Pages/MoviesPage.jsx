@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import MoviesList from 'components/MoviesList/MoviesList';
 import SearchForm from 'components/SearchForm/SearchForm';
-import { STATUS } from 'utils/constans';
+import { STATUS } from 'utils/constants';
 import { fetchMovies } from 'utils/api';
 import { toast } from 'react-hot-toast';
 
@@ -24,7 +24,7 @@ const MoviePage = () => {
     async function getMoviesTrend() {
       try {
         setStatus(STATUS.PENDING);
-        const {results} = await fetchMovies({
+        const { results } = await fetchMovies({
           controller,
           fetchParams: 'search/movie',
           query,
@@ -50,18 +50,6 @@ const MoviePage = () => {
       controller.abort();
     };
   }, [query]);
-
-  // const updateQueryString = query => {
-  //   const nextParams = query !== '' ? { query } : {};
-  //   setSearchParams(nextParams);
-  // };
-
-  // const onHandleSubmit = e => {
-  //   e.preventDefault();
-  //   if (!queryMovie.trim()) return;
-  //   setSearchParams({ query: queryMovie.trim().toLowerCase() });
-  //   // setQuery(queryText);
-  // };
 
   function getSimpleData(data) {
     return data.map(({ id, title }) => {

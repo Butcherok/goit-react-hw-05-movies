@@ -1,18 +1,42 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MovieInfo = () => {
-  
+const MovieInfo = ({ movie }) => {
+  const {
+    genres,
+    overview,
+    vote_average,
+    poster_path,
+    release_date,
+    tagline,
+    title,
+  } = movie;
+
+  const date = release_date
+    ? release_date.split('-')[0]
+    : 'No release information';
+
+  const poster = poster_path
+    ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+    : 'https://placehold.co/500x750/png';
+
+  const genreList = genres.map(genre => genre.name).join(', ');
+
+  const genre = genreList.length
+    ? genreList
+    : 'Sorry! Information is not available.';
+  const score = Math.round(vote_average * 10);
   return (
     <>
       <div>
-        <img src="" alt="" />
-        <h2>Title (year)</h2>
-        <span>User Score: 74%</span>
+        <img src={poster} alt={tagline} />
+        <h2>
+          {title} ({date})
+        </h2>
+        <span>User Score: {score}%</span>
         <h3>Overview</h3>
-        <span>text</span>
+        <span>{overview}</span>
         <h3>Genres</h3>
-        <span>text</span>
+        <span>{genre}</span>
       </div>
       <div>
         <span></span>
