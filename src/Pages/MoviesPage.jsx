@@ -35,7 +35,6 @@ const MoviePage = () => {
         }
         setMovies(getSimpleData(results));
         setStatus(STATUS.RESOLVED);
-        // setSearchParams({});
       } catch (error) {
         if (error.message !== 'canceled') {
           setStatus(STATUS.ERROR);

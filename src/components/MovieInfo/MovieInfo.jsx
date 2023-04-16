@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const MovieInfo = ({ movie }) => {
   const {
@@ -51,6 +52,18 @@ const MovieInfo = ({ movie }) => {
       </div>
     </>
   );
+};
+
+MovieInfo.propTypes = {
+  movie: PropTypes.shape({
+    release_date: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    tagline: PropTypes.string.isRequired,
+    poster_path: PropTypes.string,
+    vote_average: PropTypes.number.isRequired,
+    genres: PropTypes.array.isRequired,
+    overview: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default MovieInfo;
