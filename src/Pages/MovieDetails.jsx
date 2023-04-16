@@ -1,6 +1,7 @@
 import { Suspense, useRef } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import BackLink from 'components/BackLink/BackLink';
+import MovieInfo from 'components/MovieInfo/MovieInfo';
 
 const MovieDetails = () => {
     const location = useLocation();
@@ -46,26 +47,7 @@ const MovieDetails = () => {
   return (
     <main>
       <BackLink to={backLinkHref.current}>Go back</BackLink>
-      <div>
-        <img src="" alt="" />
-        <h2>Title (year)</h2>
-        <span>User Score: 74%</span>
-        <h3>Overview</h3>
-        <span>text</span>
-        <h3>Genres</h3>
-        <span>text</span>
-      </div>
-      <div>
-        <span></span>
-        <ul>
-          <li>
-            <Link to={'cast'}>Cast</Link>
-          </li>
-          <li>
-            <Link to={'reviews'}>Reviews</Link>
-          </li>
-        </ul>
-      </div>
+      <MovieInfo />
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>{' '}

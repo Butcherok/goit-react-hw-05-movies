@@ -35,7 +35,7 @@ const MoviePage = () => {
         }
         setMovies(getSimpleData(results));
         setStatus(STATUS.RESOLVED);
-        setSearchParams({});
+        // setSearchParams({});
       } catch (error) {
         if (error.message !== 'canceled') {
           setStatus(STATUS.ERROR);
@@ -49,7 +49,7 @@ const MoviePage = () => {
     return () => {
       controller.abort();
     };
-  }, [query, setSearchParams]);
+  }, [query]);
 
   // const updateQueryString = query => {
   //   const nextParams = query !== '' ? { query } : {};
@@ -69,7 +69,6 @@ const MoviePage = () => {
     });
   }
 
-  console.log('movieList', movies);
   return (
     <main>
       <SearchForm setSearchParams={setSearchParams} />
