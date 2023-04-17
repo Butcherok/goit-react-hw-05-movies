@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
+import { BtnForm, Form, InputForm } from './SearchForm.styled';
 
 const SearchForm = ({ setSearchParams }) => {
   const [querySearch, setQuerySearch] = useState('');
@@ -17,8 +17,8 @@ const SearchForm = ({ setSearchParams }) => {
     setQuerySearch(value);
   };
   return (
-    <form onSubmit={onHandleSubmit}>
-      <input
+    <Form onSubmit={onHandleSubmit}>
+      <InputForm
         type="text"
         autoComplete="off"
         autoFocus
@@ -26,10 +26,10 @@ const SearchForm = ({ setSearchParams }) => {
         value={querySearch}
         onChange={onHandleChange}
       />
-      <button type="submit">
+      <BtnForm type="submit">
         <span>Search</span>
-      </button>
-    </form>
+      </BtnForm>
+    </Form>
   );
 };
 

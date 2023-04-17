@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes, { shape } from 'prop-types';
-import { Link, useLocation } from 'react-router-dom';
-import { MoviesTrendItem, MoviesTrendList } from './MoviesList.styled';
+import { useLocation } from 'react-router-dom';
+import { MovieTrendLink, MoviesTrendItem, MoviesTrendList } from './MoviesList.styled';
 
 const MoviesList = ({ movies }) => {
   const location = useLocation();
@@ -11,9 +11,9 @@ const MoviesList = ({ movies }) => {
       {movies.map(({ id, title }) => {
         return (
           <MoviesTrendItem key={id}>
-            <Link to={`${id}`} state={{ from: location }}>
+            <MovieTrendLink to={`${id}`} state={{ from: location }}>
               {title}
-            </Link>
+            </MovieTrendLink>
           </MoviesTrendItem>
         );
       })}

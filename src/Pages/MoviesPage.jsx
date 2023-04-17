@@ -5,6 +5,7 @@ import SearchForm from 'components/SearchForm/SearchForm';
 import { STATUS } from 'utils/constants';
 import { fetchMovies } from 'utils/api';
 import { toast } from 'react-hot-toast';
+import { MainContainer } from 'components/MoviesList/MoviesList.styled';
 
 const MoviePage = () => {
   // const [query, setQuery] = useState('');
@@ -57,12 +58,12 @@ const MoviePage = () => {
   }
 
   return (
-    <main>
+    <MainContainer>
       <SearchForm setSearchParams={setSearchParams} />
       {status === STATUS.RESOLVED && !!movies.length && (
         <MoviesList movies={movies} />
       )}
-    </main>
+    </MainContainer>
   );
 };
 
