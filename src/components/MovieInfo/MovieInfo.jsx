@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { BaseMovieInfo, MoviePoster } from './MovieInfo.styled';
 
 const MovieInfo = ({ movie }) => {
   const {
@@ -28,8 +29,8 @@ const MovieInfo = ({ movie }) => {
   const score = Math.round(vote_average * 10);
   return (
     <>
-      <div>
-        <img src={poster} alt={tagline} />
+      <BaseMovieInfo>
+        <MoviePoster src={poster} alt={tagline} />
         <h2>
           {title} ({date})
         </h2>
@@ -38,7 +39,7 @@ const MovieInfo = ({ movie }) => {
         <span>{overview}</span>
         <h3>Genres</h3>
         <span>{genre}</span>
-      </div>
+      </BaseMovieInfo>
       <div>
         <span></span>
         <ul>

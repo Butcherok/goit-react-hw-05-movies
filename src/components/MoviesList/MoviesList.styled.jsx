@@ -25,7 +25,7 @@ export const MoviesTrendList = styled.ul`
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  padding: 12px;
+  padding: 0 12px;
   width: 100%;
 `;
 

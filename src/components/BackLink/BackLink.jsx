@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { HiArrowLeft } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
+import { BackwardLink } from './BackLink.styled';
 
 const BackLink = ({ to, children }) => {
   return (
-    <Link to={to}>
+    <BackwardLink to={to}>
       <HiArrowLeft size={24} />
       {children}
-    </Link>
+    </BackwardLink>
   );
 };
 

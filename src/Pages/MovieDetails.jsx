@@ -5,6 +5,7 @@ import BackLink from 'components/BackLink/BackLink';
 import MovieInfo from 'components/MovieInfo/MovieInfo';
 import { STATUS } from 'utils/constants';
 import { fetchMovies } from 'utils/api';
+import { MainContainer } from 'components/MoviesList/MoviesList.styled';
 
 const MovieDetails = () => {
   const location = useLocation();
@@ -46,13 +47,13 @@ const MovieDetails = () => {
   }, [movieId]);
 
   return (
-    <main>
+    <MainContainer>
       <BackLink to={backLinkHref.current}>Go back</BackLink>
       {status === STATUS.RESOLVED && <MovieInfo movie={movie} />}
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>{' '}
-    </main>
+    </MainContainer>
   );
 };
 
