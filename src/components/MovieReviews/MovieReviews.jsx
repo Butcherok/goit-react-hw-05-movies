@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { animateScroll as scroll } from 'react-scroll';
 import { fetchMovies } from 'utils/api';
 import { STATUS } from 'utils/constants';
+import { ReviewNoInfo, ReviewText, ReviewTitle, ReviewsContainer, ReviewsItem, ReviewsList } from './MovieReviews.styled';
 
 const MovieReviews = () => {
   const { movieId } = useParams();
@@ -44,19 +45,19 @@ const MovieReviews = () => {
   }, [movieId]);
 
   return (
-    <div>
+    <ReviewsContainer>
       {status === STATUS.RESOLVED && !!reviews.length && (
-        <ul>
+        <ReviewsList>
           {reviews.map(({ author, content, id }) => (
-            <li key={id}>
-              <h3>Author: {author}</h3>
-              <p>{content}</p>
-            </li>
+            <ReviewsItem key={id}>
+              <ReviewTitle>Author: {author}</ReviewTitle>
+              <ReviewText>{content}</ReviewText>
+            </ReviewsItem>
           ))}
-        </ul>
+        </ReviewsList>
       )}
-      {!reviews.length && <p>Sorry! Information is not available.</p>}
-    </div>
+      {!reviews.length && <ReviewNoInfo>Sorry! Information is not available.</ReviewNoInfo>}
+    </ReviewsContainer>
   );
 };
 

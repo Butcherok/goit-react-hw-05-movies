@@ -59,3 +59,23 @@ export const MovieTrendLink = styled(Link)`
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   }
 `;
+
+export const NoPage = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  gap: 24px;
+  margin: 50px 0;
+  padding: 40px 0;
+
+  font-size: 28px;
+  font-weight: 700;
+`;
+
+export const NoPageText = styled.p`
+  color: tomato;
+  font-size: 28px;
+  font-weight: 700;
+`;

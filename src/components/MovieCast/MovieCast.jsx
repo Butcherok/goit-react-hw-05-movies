@@ -5,6 +5,7 @@ import { animateScroll as scroll } from 'react-scroll';
 import { fetchMovies } from 'utils/api';
 import { STATUS } from 'utils/constants';
 import { CastChar, CastContainer, CastItem, CastList, CastName } from './MovieCast.styled';
+import { ReviewNoInfo } from 'components/MovieReviews/MovieReviews.styled';
 
 const MovieCast = () => {
   const { movieId } = useParams();
@@ -73,6 +74,9 @@ const MovieCast = () => {
             </CastItem>
           ))}
         </CastList>
+      )}
+      {!cast.length && (
+        <ReviewNoInfo>Sorry! Information is not available.</ReviewNoInfo>
       )}
     </CastContainer>
   );
