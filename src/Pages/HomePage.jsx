@@ -1,3 +1,4 @@
+import { MainContainer, MovieTrendLink, MoviesTrendItem, MoviesTrendList, TitleHome } from 'components/MoviesList/MoviesList.styled';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link, useLocation } from 'react-router-dom';
@@ -47,22 +48,22 @@ const HomePage = () => {
   }
 
   return (
-    <main>
-      <h1>Trending today</h1>
+    <MainContainer>
+      <TitleHome>Trending today</TitleHome>
       {status === STATUS.RESOLVED && (
-        <ul>
+        <MoviesTrendList>
           {movies.map(({ id, title }) => {
             return (
-              <li key={id}>
-                <Link to={`movies/${id}`} state={{ from: location }}>
+              <MoviesTrendItem key={id}>
+                <MovieTrendLink to={`movies/${id}`} state={{ from: location }}>
                   {title}
-                </Link>
-              </li>
+                </MovieTrendLink>
+              </MoviesTrendItem>
             );
           })}
-        </ul>
+        </MoviesTrendList>
       )}
-    </main>
+    </MainContainer>
   );
 };
 

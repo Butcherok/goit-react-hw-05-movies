@@ -1,22 +1,23 @@
 import React from 'react';
 import PropTypes, { shape } from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
+import { MoviesTrendItem, MoviesTrendList } from './MoviesList.styled';
 
 const MoviesList = ({ movies }) => {
   const location = useLocation();
 
   return (
-    <ul>
+    <MoviesTrendList>
       {movies.map(({ id, title }) => {
         return (
-          <li key={id}>
+          <MoviesTrendItem key={id}>
             <Link to={`${id}`} state={{ from: location }}>
               {title}
             </Link>
-          </li>
+          </MoviesTrendItem>
         );
       })}
-    </ul>
+    </MoviesTrendList>
   );
 };
 
