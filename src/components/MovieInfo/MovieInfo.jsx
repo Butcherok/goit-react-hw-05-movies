@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { BaseMovieInfo, MoviePoster } from './MovieInfo.styled';
+import { AdditionalInfo, AdditionalInfoTitle, AdditionalItem, AdditionalList, BaseMovieInfo, InfoList, MoviePoster } from './MovieInfo.styled';
+import { MovieTrendLink } from 'components/MoviesList/MoviesList.styled';
 
 const MovieInfo = ({ movie }) => {
   const {
@@ -31,26 +31,28 @@ const MovieInfo = ({ movie }) => {
     <>
       <BaseMovieInfo>
         <MoviePoster src={poster} alt={tagline} />
-        <h2>
-          {title} ({date})
-        </h2>
-        <span>User Score: {score}%</span>
-        <h3>Overview</h3>
-        <span>{overview}</span>
-        <h3>Genres</h3>
-        <span>{genre}</span>
+        <InfoList>
+          <h2>
+            {title} ({date})
+          </h2>
+          <span>User Score: {score}%</span>
+          <h3>Overview</h3>
+          <span>{overview}</span>
+          <h3>Genres</h3>
+          <span>{genre}</span>
+        </InfoList>
       </BaseMovieInfo>
-      <div>
-        <span></span>
-        <ul>
-          <li>
-            <Link to={'cast'}>Cast</Link>
-          </li>
-          <li>
-            <Link to={'reviews'}>Reviews</Link>
-          </li>
-        </ul>
-      </div>
+      <AdditionalInfo>
+        <AdditionalInfoTitle>Additional information</AdditionalInfoTitle>
+        <AdditionalList>
+          <AdditionalItem>
+            <MovieTrendLink to={'cast'}>Cast</MovieTrendLink>
+          </AdditionalItem>
+          <AdditionalItem>
+            <MovieTrendLink to={'reviews'}>Reviews</MovieTrendLink>
+          </AdditionalItem>
+        </AdditionalList>
+      </AdditionalInfo>
     </>
   );
 };
