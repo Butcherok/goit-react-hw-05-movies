@@ -25,11 +25,16 @@ export const MoviesTrendList = styled.ul`
   flex-direction: column;
   justify-content: start;
   align-items: start;
+  padding: 12px;
   width: 100%;
 `;
 
 export const MoviesTrendItem = styled.li`
-  width: inherit;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 97%;
+  padding: 20px 12px;
   border: 1px solid lightblue;
   border-radius: 5px;
   &:nth-of-type(2n) {
@@ -38,10 +43,19 @@ export const MoviesTrendItem = styled.li`
   &:nth-of-type(2n-1) {
     background-color: #cbf0fd;
   }
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 500;
   `;
 
 export const MovieTrendLink = styled(Link)`
-  padding: 12px 0;
+  color: #212121;
+  list-style: none;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    color: tomato;
+    transition: all 0.3s ease-in-out;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
 `;
