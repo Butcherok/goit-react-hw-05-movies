@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { animateScroll as scroll } from 'react-scroll';
 import { fetchMovies } from 'utils/api';
 import { STATUS } from 'utils/constants';
+import { CastChar, CastContainer, CastItem, CastList, CastName } from './MovieCast.styled';
 
 const MovieCast = () => {
   const { movieId } = useParams();
@@ -61,19 +62,19 @@ const MovieCast = () => {
     });
 
   return (
-    <div>
+    <CastContainer>
       {status === STATUS.RESOLVED && !!cast.length && (
-        <ul>
+        <CastList>
           {cast.map(({ id, name, original_name, char, profile }) => (
-            <li key={id}>
+            <CastItem key={id}>
               <img src={profile} alt={name} width="180" height="270" />
-              <p>{original_name}</p>
-              <p>Character: {char}</p>
-            </li>
+              <CastName>{original_name}</CastName>
+              <CastChar>Character: {char}</CastChar>
+            </CastItem>
           ))}
-        </ul>
+        </CastList>
       )}
-    </div>
+    </CastContainer>
   );
 };
 
