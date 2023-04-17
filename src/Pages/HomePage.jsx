@@ -1,7 +1,6 @@
 import { MainContainer, MovieTrendLink, MoviesTrendItem, MoviesTrendList, TitleHome } from 'components/MoviesList/MoviesList.styled';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
-import { Link, useLocation } from 'react-router-dom';
 import { fetchMovies } from 'utils/api';
 import { STATUS } from 'utils/constants';
 
